@@ -8,6 +8,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.search_vk.utils.Generated;
+
+import java.net.URL;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView result;
@@ -30,7 +34,10 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                result.setText("Изменения");
+
+                URL generatedURL = Generated.generatedURL(search_field.getText().toString());
+
+                result.setText(generatedURL.toString());
             }
         };
 
