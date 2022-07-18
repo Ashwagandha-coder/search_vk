@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         search_field = findViewById(R.id.et_search_field);
         search_button = findViewById(R.id.btn_search);
 
-        // ovveride onclick
+        // overide onclick
 
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
