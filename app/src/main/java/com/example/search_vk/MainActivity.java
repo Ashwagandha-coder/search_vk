@@ -31,14 +31,11 @@ public class MainActivity extends AppCompatActivity {
 
         // overide onclick
 
-        View.OnClickListener onClickListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        View.OnClickListener onClickListener = view -> {
 
-                URL generatedURL = Generated.generatedURL(search_field.getText().toString());
+            URL generatedURL = Generated.generatedURL(search_field.getText().toString());
 
-                result.setText(generatedURL.toString());
-            }
+            result.setText(generatedURL.toString());
         };
 
         search_button.setOnClickListener(onClickListener);
