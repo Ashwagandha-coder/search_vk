@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.search_vk.utils.Generated;
 
+import java.io.IOException;
 import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,7 +36,16 @@ public class MainActivity extends AppCompatActivity {
 
             URL generatedURL = Generated.generatedURL(search_field.getText().toString());
 
-            result.setText(generatedURL.toString());
+            String response = null;
+
+            try {
+                response = Generated.getResponseFromURL(generatedURL);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+            result.setText(response);
         };
 
         search_button.setOnClickListener(onClickListener);
