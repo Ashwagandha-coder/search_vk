@@ -49,11 +49,25 @@
                 android:layout_height="wrap_content"
                 android:text="@string/result"
                 android:id="@+id/tv_result"
-                >
+                android:visibility="invisible"
+                android:textSize="@dimen/error_message">
 
             </TextView>
 
         </ScrollView>
+
+        <TextView
+            android:id="@+id/tv_error_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/error_message"
+            android:padding="@dimen/vertical"
+            android:text="@string/error_text"
+            android:visibility="invisible">
+
+
+
+        </TextView>
 
     </FrameLayout>
 

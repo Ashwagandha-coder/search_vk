@@ -3,4 +3,5 @@
     <string name="search">search</string>
     <string name="result">Результат выполнения</string>
     <string name="id_vk">Введите id номер VK</string>
+    <string name="error_text">Ошибка, Попробуйте ещё раз!</string>
 </resources>

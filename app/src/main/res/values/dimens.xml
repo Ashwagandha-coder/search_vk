@@ -3,5 +3,6 @@
 
     <dimen name="horizontal">16dp</dimen>
     <dimen name="vertical">16dp</dimen>
+    <dimen name="error_message">22sp</dimen>
 
 </resources>
