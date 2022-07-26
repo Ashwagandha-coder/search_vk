@@ -23,8 +23,21 @@ public class MainActivity extends AppCompatActivity {
     private TextView result;
     private EditText search_field;
     private Button search_button;
+    private TextView error_message;
 
     class VKQueryParametr extends AsyncTask<URL,Void, String> {
+
+        public void showResultOK() {
+
+            result.setVisibility(View.VISIBLE);
+            error_message.setVisibility(View.INVISIBLE);
+        }
+
+        public void showResultError() {
+
+            result.setVisibility(View.INVISIBLE);
+            error_message.setVisibility(View.VISIBLE);
+        }
 
         @Override
         protected String doInBackground(URL... urls) {
@@ -47,24 +60,30 @@ public class MainActivity extends AppCompatActivity {
             String firstName = null;
             String lastName = null;
 
+            if (string != null && !string.equals("")) {
 
-            try {
-                JSONObject jsonObject = new JSONObject(string);
-                JSONArray jsonArray = jsonObject.getJSONArray("response");
-                JSONObject resultJSONObject = jsonArray.getJSONObject(0);
+                try {
+                    JSONObject jsonObject = new JSONObject(string);
+                    JSONArray jsonArray = jsonObject.getJSONArray("response");
+                    JSONObject resultJSONObject = jsonArray.getJSONObject(0);
 
-                firstName = resultJSONObject.getString("first_name");
-                lastName = resultJSONObject.getString("last_name");
+                    firstName = resultJSONObject.getString("first_name");
+                    lastName = resultJSONObject.getString("last_name");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+
+                }
+
+                String resultString = "Имя: " + firstName + "\n" + "Фамилия: " + lastName;
+
+                result.setText(resultString);
+
+                showResultOK();
             }
-            catch (JSONException e) {
-                e.printStackTrace();
-
+            else {
+                showResultError();
             }
 
-            String resultString = "Имя: " + firstName + "\n" + "Фамилия: " + lastName;
-
-
-            result.setText(resultString);
         }
     }
 
@@ -78,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
         result = findViewById(R.id.tv_result);
         search_field = findViewById(R.id.et_search_field);
         search_button = findViewById(R.id.btn_search);
+        error_message = findViewById(R.id.tv_error_message);
 
         // overide onclick
 

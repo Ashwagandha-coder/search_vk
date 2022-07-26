@@ -4,5 +4,6 @@
     <dimen name="horizontal">16dp</dimen>
     <dimen name="vertical">16dp</dimen>
     <dimen name="error_message">22sp</dimen>
+    <dimen name="size_pb">45dp</dimen>
 
 </resources>

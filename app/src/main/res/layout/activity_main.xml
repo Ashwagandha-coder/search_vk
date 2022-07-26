@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
-    android:paddingStart="@dimen/horizontal"
-    android:paddingEnd="@dimen/vertical">
+    android:paddingEnd="@dimen/vertical"
+    android:paddingTop="@dimen/horizontal">
 
 
     <LinearLayout
@@ -65,9 +65,18 @@
             android:text="@string/error_text"
             android:visibility="invisible">
 
-
-
         </TextView>
+
+        <ProgressBar
+            android:layout_width="@dimen/size_pb"
+            android:layout_height="@dimen/size_pb"
+            android:id="@+id/pb_loading_indicator"
+            android:layout_gravity="center"
+            android:visibility="invisible">
+
+        </ProgressBar>
+
+
 
     </FrameLayout>
 

@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.Scanner;
 
 public class Generated {
@@ -62,6 +63,9 @@ public class Generated {
 
             } else
                 return null;
+        }
+        catch (UnknownHostException e) {
+            return null;
         }
         finally {
 
