@@ -11,6 +11,10 @@ import android.widget.TextView;
 
 import com.example.search_vk.utils.Generated;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.net.URL;
 
@@ -39,7 +43,28 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String string) {
-            result.setText(string);
+
+            String firstName = null;
+            String lastName = null;
+
+
+            try {
+                JSONObject jsonObject = new JSONObject(string);
+                JSONArray jsonArray = jsonObject.getJSONArray("response");
+                JSONObject resultJSONObject = jsonArray.getJSONObject(0);
+
+                firstName = resultJSONObject.getString("first_name");
+                lastName = resultJSONObject.getString("last_name");
+            }
+            catch (JSONException e) {
+                e.printStackTrace();
+
+            }
+
+            String resultString = "Имя: " + firstName + "\n" + "Фамилия: " + lastName;
+
+
+            result.setText(resultString);
         }
     }
 
