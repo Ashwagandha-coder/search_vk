@@ -25,7 +25,7 @@ public class Generated {
         Uri builtUri = Uri.parse(BASE_URL + METHOD_QUERY)
                 .buildUpon()
                 .appendQueryParameter(PARAM_USER_ID,userID)
-                .appendQueryParameter(PARAM_V, "5.8")
+                .appendQueryParameter(PARAM_V, "5.131")
                 .appendQueryParameter(field_ACCESS_TOKEN,ACCESS_TOKEN)
                 .build();
 
