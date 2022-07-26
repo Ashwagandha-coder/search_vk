@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.search_vk.utils.Generated;
@@ -24,19 +25,27 @@ public class MainActivity extends AppCompatActivity {
     private EditText search_field;
     private Button search_button;
     private TextView error_message;
+    private ProgressBar loading_progressBar;
+
+    public void showResultOK() {
+
+        result.setVisibility(View.VISIBLE);
+        error_message.setVisibility(View.INVISIBLE);
+    }
+
+    public void showResultError() {
+
+        result.setVisibility(View.INVISIBLE);
+        error_message.setVisibility(View.VISIBLE);
+    }
 
     class VKQueryParametr extends AsyncTask<URL,Void, String> {
 
-        public void showResultOK() {
+        @Override
+        protected void onPreExecute() {
 
-            result.setVisibility(View.VISIBLE);
-            error_message.setVisibility(View.INVISIBLE);
-        }
+            loading_progressBar.setVisibility(View.VISIBLE);
 
-        public void showResultError() {
-
-            result.setVisibility(View.INVISIBLE);
-            error_message.setVisibility(View.VISIBLE);
         }
 
         @Override
@@ -84,6 +93,8 @@ public class MainActivity extends AppCompatActivity {
                 showResultError();
             }
 
+            loading_progressBar.setVisibility(View.INVISIBLE);
+
         }
     }
 
@@ -98,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
         search_field = findViewById(R.id.et_search_field);
         search_button = findViewById(R.id.btn_search);
         error_message = findViewById(R.id.tv_error_message);
+        loading_progressBar = findViewById(R.id.pb_loading_indicator);
 
         // overide onclick
 
