@@ -15,7 +15,8 @@ public class Generated {
     private static final String METHOD_QUERY = "/method/users.get";
     private static final String PARAM_USER_ID = "user_ids";
     private static final String PARAM_V = "v";
-    private static final String ACCESS_TOKEN = "";
+    private static final String ACCESS_TOKEN = "8e5a71e38e5a71e38e5a71e3f48e27057b88e5a8e5a71e3ec8f08bcc3d7557a8295ea6b";
+    private static final String field_ACCESS_TOKEN = "access_token";
 
 
 
@@ -25,6 +26,7 @@ public class Generated {
                 .buildUpon()
                 .appendQueryParameter(PARAM_USER_ID,userID)
                 .appendQueryParameter(PARAM_V, "5.8")
+                .appendQueryParameter(field_ACCESS_TOKEN,ACCESS_TOKEN)
                 .build();
 
         URL url = null;
